@@ -1,7 +1,7 @@
 [user]
 	name = BeagleXV
 	email = fernandooliveira@klever.io
-	signingkey = 4C493D90C14A5F9E
+	signingkey = 8886605FB12D706E
 
 [gpg]
 	program = /usr/bin/gpg
