@@ -14,7 +14,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 # ------------------------------
 # Oh-My-Posh, zoxide, fzf
 # ------------------------------
-source "${ZINIT_HOME}/zinit.zsh"
 export PATH=$HOME/.local/bin:$PATH
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.toml)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -52,4 +51,10 @@ fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -Uz compinit && compinit
 
 export PATH="$HOME/.cargo/bin:$PATH"
-eval "$(zoxide init bash)"
+# zoxide's own `zi` shortcut is dropped to avoid colliding with zinit's `zi` alias
+eval "$(zoxide init zsh | sed '/^zi() {/,/^}/d')"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="$HOME/.local/bin:$PATH"

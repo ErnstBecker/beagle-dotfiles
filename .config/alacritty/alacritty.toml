@@ -38,3 +38,8 @@ y = 20
 
 [cursor]
 style = "Beam"
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
