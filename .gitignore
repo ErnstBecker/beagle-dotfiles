@@ -1,2 +1,7 @@
 history
 btop.log
+
+# Tmux
+tmux
+!tmux/tmux.conf
+!tmux/plugins/.gitkeep
